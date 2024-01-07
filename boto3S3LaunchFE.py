@@ -14,7 +14,7 @@ user_data_script = f"""#!/bin/bash
 cd /home/ubuntu/
 sudo apt-get update -y
 sudo apt-get install git -y
-sudo git clone https://github.com/sayanalokesh/TravelMemory.git
+sudo git clone https://github.com/patilajayv/TravelMemory.git
 
 # Installation instructions of NodeJS can be found here "https://github.com/nodesource/distributions.git"
 
@@ -96,9 +96,9 @@ instance = instances[0]
 instance.wait_until_running()
 
 # Associate the Elastic IP address with the instance
-ec2.meta.client.associate_address(InstanceId=instance.id, PublicIp='13.234.229.68')
+ec2.meta.client.associate_address(InstanceId=instance.id, PublicIp='13.200.147.211')
 
-print("New Ubuntu Frontend instance is created and associated with Elastic IP (13.234.229.68).")
+print("New Ubuntu Frontend instance is created and associated with Elastic IP (13.200.147.211).")
 
 # Run another Python script (boto3InstanceBE.py)
 subprocess.run(['python', 'boto3InstanceBE.py'])
