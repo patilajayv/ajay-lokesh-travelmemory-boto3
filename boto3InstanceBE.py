@@ -9,12 +9,12 @@ ec2 = boto3.resource('ec2', region_name='ap-south-1')  # You can set your desire
 ubuntu_ami_id = 'ami-0287a05f0ef0e9d9a'  # Replace with the actual AMI ID you find for your Ubuntu version and region
 
 # User data script to update packages and install Nginx
-password = 'lokesh'
+password = 'cCcueSV8YtJkxumt'
 user_data_script = f"""#!/bin/bash
 cd /home/ubuntu/
 sudo apt-get update -y
 sudo apt-get install git -y
-sudo git clone https://github.com/sayanalokesh/TravelMemory.git
+sudo git clone https://github.com/patilajayv/TravelMemory.git
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
 sudo mkdir -p /etc/apt/keyrings
@@ -29,7 +29,7 @@ sudo apt-get install nodejs -y
 
 cd /home/ubuntu/TravelMemory/backend/
 sudo npm install
-echo 'MONGO_URI="mongodb+srv://lokesh:{password}@travelmemory.3a09n5s.mongodb.net/travelmemory"' >> .env
+echo 'MONGO_URI="mongodb+srv://Ajay11:{password}@cluster0.0nvbmll.mongodb.net//travelmemory"' >> .env
 echo 'PORT=80' >> .env
 sudo apt-get update -y
 sudo apt-get install nginx -y
@@ -97,9 +97,9 @@ instance = instances[0]
 instance.wait_until_running()
 
 # Associate the Elastic IP address with the instance
-ec2.meta.client.associate_address(InstanceId=instance.id, PublicIp='13.127.74.191')
+ec2.meta.client.associate_address(InstanceId=instance.id, PublicIp='13.127.175.130')
 
-print("New Ubuntu Backend instance is created and associated with Elastic IP (13.127.74.191).")
+print("New Ubuntu Backend instance is created and associated with Elastic IP (13.127.175.130).")
 
 # Run another Python script (boto3InstanceBE.py)
 subprocess.run(['python', 'LoadBalancing.py'])
